@@ -3,10 +3,10 @@
 from telnetlib import Telnet
 from threading import Thread
 import sys
-from utils import port_path
 import socket
 import time
 import os
+from os.path import expanduser, join
 
 
 def start_shell(port, host="127.0.0.1"):
@@ -19,7 +19,7 @@ def start_shell(port, host="127.0.0.1"):
                 if out:
                     sys.stdout.write(out)
                     sys.stdout.flush()
-            except EOFError:
+            except:
                 break
 
     Thread(target=print_output).start()
@@ -36,7 +36,7 @@ def start_shell(port, host="127.0.0.1"):
 def main():
     try:
         while True:
-            path = port_path()
+            path = join(expanduser("~"), ".asdb_port")
             try:
                 with open(path) as portfile:
                     port = int(portfile.read())

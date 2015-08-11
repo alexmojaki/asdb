@@ -1,7 +1,7 @@
 import socket
 import errno
 import sys
-from utils import port_path
+from os.path import expanduser, join
 
 
 def find_port(host="127.0.0.1", port=6950, search_limit=100):
@@ -43,7 +43,7 @@ def debugger():
 
 
 def save_port(port):
-    path = port_path()
+    path = join(expanduser("~"), ".asdb_port")
     with open(path, 'w') as portfile:
         portfile.write(str(port))
         portfile.flush()
@@ -51,13 +51,8 @@ def save_port(port):
 
 def t():
     db = debugger()
-    db.set_trace(sys._getframe(2))
+    db.set_trace(sys._getframe(1))
 
 
 class NoAvailablePortException(Exception):
     pass
-
-
-t()
-
-del sys.modules['asdb']
