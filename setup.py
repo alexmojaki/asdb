@@ -8,4 +8,5 @@ setup(name='asdb',
       author_email='alex.mojaki@gmail.com',
       license='MIT',
       packages=['asdb'],
+      requirements=['rpdb', 'IPython'],
       zip_safe=False)
