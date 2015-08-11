@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='asdb',
-      version='0.1',
+      version='0.2',
       description='Instant convenient debugger',
       url='https://github.com/alexmojaki/asdb',
       author='Alex Hall',
@@ -9,4 +9,7 @@ setup(name='asdb',
       license='MIT',
       packages=['asdb'],
       install_requires=['rpdb'],
+      entry_points={
+          'console_scripts': ['asdb=asdb.shell:main'],
+      },
       zip_safe=False)
