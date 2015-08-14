@@ -50,8 +50,9 @@ def save_port(port):
 
 
 def t():
-    db = debugger()
-    db.set_trace(sys._getframe(1))
+    if not sys.gettrace():
+        db = debugger()
+        db.set_trace(sys._getframe(1))
 
 
 class NoAvailablePortException(Exception):
