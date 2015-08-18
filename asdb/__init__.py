@@ -55,5 +55,8 @@ def t():
         db.set_trace(sys._getframe(1))
 
 
+set_trace = t
+
+
 class NoAvailablePortException(Exception):
     pass
