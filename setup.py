@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='asdb',
-      version='0.2.8',
+      version='0.3.0',
       description='Instant convenient debugger',
       url='https://github.com/alexmojaki/asdb',
       author='Alex Hall',
