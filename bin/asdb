@@ -36,7 +36,7 @@ def start_shell(port, host="127.0.0.1"):
 def main():
     try:
         while True:
-            path = join(expanduser("~"), ".asdb_port")
+            path = join("/tmp/.asdb_port")
             try:
                 with open(path) as portfile:
                     port = int(portfile.read())

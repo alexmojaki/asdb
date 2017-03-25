@@ -43,7 +43,7 @@ def debugger():
 
 
 def save_port(port):
-    path = join(expanduser("~"), ".asdb_port")
+    path = join("/tmp/.asdb_port")
     with open(path, 'w') as portfile:
         portfile.write(str(port))
         portfile.flush()
